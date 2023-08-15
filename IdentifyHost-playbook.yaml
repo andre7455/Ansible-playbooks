@@ -1,8 +1,12 @@
 ---
 - name: Get Ping, Hostname, and IP
-  hosts: localhost
+  hosts: localhost  # Replace with your target host or group
+
   tasks:
-    - name: Ping localhost
+    - name: Gather Facts
+      setup:
+
+    - name: Ping the remote host
       ping:
 
     - name: Get Hostname and IP
