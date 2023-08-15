@@ -1,10 +1,8 @@
----
 - name: My first play
-  hosts: all
+  hosts: virtualmachines
   tasks:
-    - name: try update
-      ansible.builtin.apt:
-        update_cache: yes
-        autoremove: yes
-        autoclean: yes
-        upgrade: full
+   - name: Ping my hosts
+     ansible.builtin.ping:
+   - name: Print message
+     ansible.builtin.debug:
+       msg: Hello world
