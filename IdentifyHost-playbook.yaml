@@ -1,5 +1,6 @@
 ---
 - name: Get Ping, Hostname, and IP
+  hosts: localhost
   tasks:
     - name: Ping localhost
       ping:
