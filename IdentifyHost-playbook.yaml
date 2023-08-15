@@ -2,9 +2,9 @@
 - name: My first play
   hosts: all
   tasks:
-   -name: try update
+    - name: try update
       ansible.builtin.apt:
-        update_cache: true
-        autoremove: true
-        autoclean: true
+        update_cache: yes
+        autoremove: yes
+        autoclean: yes
         upgrade: full
