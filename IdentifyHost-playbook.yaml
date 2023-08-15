@@ -1,19 +1,27 @@
 ---
-- name: Get Ping, Hostname, and IP
-  hosts: localhost  # Replace with your target host or group
+- name: Update and Upgrade
+  hosts: localhost  # Replace with your target hosts or IP addresses
+  become: true  # Run tasks with administrative privileges
 
   tasks:
-    - name: Gather Facts
-      setup:
+    - name: Update APT cache
+      apt:
+        update_cache: yes
+      become: true
 
-    - name: Ping the remote host
-      ping:
+    - name: Upgrade packages
+      apt:
+        upgrade: yes
+      become: true
 
-    - name: Get Hostname and IP
-      set_fact:
-        hostname: "{{ ansible_facts['ansible_hostname'] }}"
-        ip_address: "{{ ansible_facts['ansible_default_ipv4']['address'] }}"
+    - name: Get IP address
+      ansible.builtin.set_fact:
+        host_ip: "{{ ansible_default_ipv4.address }}"
 
-    - name: Display Hostname and IP
+    - name: Get Hostname
+      ansible.builtin.set_fact:
+        host_name: "{{ ansible_hostname }}"
+
+    - name: Display IP address and Hostname
       debug:
-        msg: "Hostname: {{ hostname }}, IP Address: {{ ip_address }}"
+        msg: "IP Address: {{ host_ip }}, Hostname: {{ host_name }}"
