@@ -1,8 +1,5 @@
 ---
 - name: Get Ping, Hostname, and IP
-  hosts: localhost
-  gather_facts: yes
-
   tasks:
     - name: Ping localhost
       ping:
