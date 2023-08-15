@@ -2,11 +2,9 @@
 - name: My first play
   hosts: all
   tasks:
-   -name: Ping my hosts
-     ansible.builtin.ping:
    -name: try update
-     ansible.builtin.apt:
-     update_cache: true
-     autoremove: true
-     autoclean: true
-     upgrade: full
+      ansible.builtin.apt:
+        update_cache: true
+        autoremove: true
+        autoclean: true
+        upgrade: full
