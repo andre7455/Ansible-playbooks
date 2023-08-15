@@ -4,15 +4,11 @@
   become: true  # Run tasks with administrative privileges
 
   tasks:
-    - name: Update APT cache
-      apt:
-        update_cache: yes
+    - name: Update and upgrade apt packages
       become: true
-
-    - name: Upgrade packages
       apt:
         upgrade: yes
-      become: true
+        update_cache: yes
 
     - name: Get IP address
       ansible.builtin.set_fact:
