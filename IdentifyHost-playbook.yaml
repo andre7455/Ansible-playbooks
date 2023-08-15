@@ -1,0 +1,17 @@
+---
+- name: Get Ping, Hostname, and IP
+  hosts: localhost
+  gather_facts: yes
+
+  tasks:
+    - name: Ping localhost
+      ping:
+
+    - name: Get Hostname and IP
+      set_fact:
+        hostname: "{{ ansible_facts['ansible_hostname'] }}"
+        ip_address: "{{ ansible_facts['ansible_default_ipv4']['address'] }}"
+
+    - name: Display Hostname and IP
+      debug:
+        msg: "Hostname: {{ hostname }}, IP Address: {{ ip_address }}"
