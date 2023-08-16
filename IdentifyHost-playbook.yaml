@@ -1,6 +1,6 @@
 ---
 - name: all
-  hosts: your_host_group  # Replace with the name of your host group from your Ansible inventory
+  hosts: all  # Replace with the name of your host group from your Ansible inventory
 
   tasks:
     - name: Ping the hosts
