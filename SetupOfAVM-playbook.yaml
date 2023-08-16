@@ -1,7 +1,19 @@
 ---
-- name: all
-  hosts: all  # Replace with the name of your host group from your Ansible inventory
+- name: Update and upgrade packages and install qemu-guest-agent
+  hosts: all
+  become: yes
 
   tasks:
-    - name: Ping the hosts
-      ping:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade packages
+      apt:
+        upgrade: yes
+        autoremove: yes
+
+    - name: Install qemu-guest-agent package
+      apt:
+        name: qemu-guest-agent
+        state: present
