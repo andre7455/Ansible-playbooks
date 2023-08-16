@@ -1,8 +1,7 @@
-- name: My first play
-  hosts: all
+---
+- name: all
+  hosts: your_host_group  # Replace with the name of your host group from your Ansible inventory
+
   tasks:
-   - name: Ping my hosts
-     ansible.builtin.ping:
-   - name: Print message
-     ansible.builtin.debug:
-       msg: Hello world
+    - name: Ping the hosts
+      ping:
